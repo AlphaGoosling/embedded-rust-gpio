@@ -30,3 +30,12 @@ fn panic(_info: &PanicInfo) -> ! {
         atomic::compiler_fence(Ordering::SeqCst);
     }
 }
+
+#[unsafe(link_section = ".bi_entries")]
+#[used]
+pub static PICOTOOL_ENTRIES: [embassy_rp::binary_info::EntryAddr; 4] = [
+    embassy_rp::binary_info::rp_program_name!(c"GPIO on off program"),
+    embassy_rp::binary_info::rp_program_description!(c"This program toggles the state of pin two of a rp pico high and low"),
+    embassy_rp::binary_info::rp_cargo_version!(),
+    embassy_rp::binary_info::rp_program_build_attribute!(),
+];
