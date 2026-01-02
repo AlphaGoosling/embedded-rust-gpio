@@ -1,0 +1,18 @@
+[package]
+name = "embedded-rust-gpio"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m = { version = "0.7.6" }
+cortex-m-rt = "0.7.5"
+embassy-executor = { version = "0.9", features = [
+  "arch-cortex-m",
+  "executor-thread",
+] }
+embassy-rp = { version = "0.8.0", features = [
+  "rp235xa",
+  "time-driver",
+  "critical-section-impl",
+] }
+embassy-time = { version = "0.5.0" }
